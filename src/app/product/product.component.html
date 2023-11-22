@@ -1,0 +1,60 @@
+
+
+  <div>
+    <div>
+
+             
+  <table class="table table-dark table-hover m-5 p-5">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">DELETE</th>
+        <th scope="col">UPDATE</th>
+       
+        
+      
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+       
+      </tr>
+      <tr *ngFor="let product of products">
+        <th >{{product.id}}</th>
+        <td>{{product.name}}</td>
+        <td>{{product.category}}</td>
+        <td>{{product.price}}</td>
+        <td><button (click)="deleteProductById(product.id)" class="btn btn-danger">Delete</button></td>
+        <td><button (click)="updateProduct(product)" class="btn btn-primary">Update</button></td>
+       
+
+      </tr>
+      
+    </tbody>
+  </table>
+  
+    </div>
+
+    <button class="btn btn-success" (click)="gotToAddProduct()">Add New Product</button>
+  </div>
+
+  <div *ngIf="isUpdate" class="bg-primary m-5 p-5">
+    <h3>Update Product: </h3>
+    <form (ngSubmit)="updateProductSubmit()">
+      id: <input type="number" [(ngModel)]="productUpdate.id" name="pId" id="pId" disabled>
+      Name: <input type="text" [(ngModel)]="productUpdate.name" name="pName" id="pId" >
+
+      Category: <input type="text" [(ngModel)]="productUpdate.category" name="category" id="category" >
+      Price: <input type="number" [(ngModel)]="productUpdate.price" name="price" id="price" >
+      <input type="submit" value="Update Product">
+    </form>
+
+  </div>
+
+ 
+
+  
+ 
